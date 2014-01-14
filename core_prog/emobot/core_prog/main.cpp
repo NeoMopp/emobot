@@ -1,9 +1,14 @@
+//openCV include directories
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/objdetect/objdetect.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 
+//rapberrypicam_cv include directories
+//#include "RaspiCamCV.h"
+
 #include <iostream>
 #include <stdio.h>
+
 
 using namespace std;
 using namespace cv;
@@ -17,9 +22,9 @@ int main(int argc, char* argv[])
 	face_cascade.load("C:\\openCV\\data\\haarcascades\\haarcascade_frontalface_alt.xml");
 
 	//set VideoCapture variable and link it to camera.
-	//VideoCapture captureDevice;
-	//captureDevice.open(0);
 	CvCapture *captureDevice = cvCreateCameraCapture(0);
+	//RaspiCamCvCapture *captureDevice = raspiCamCvCreateCameraCapture();
+
 
 	//check to see if capture device is "real" and alert user if it isn't.
 	if (!captureDevice)
@@ -32,13 +37,14 @@ int main(int argc, char* argv[])
 	Mat greyscaleFrame;
 	
 	//Make window for the output to be displayed in.
-	namedWindow("outputCapture",1);
+	cvNamedWindow("outputCapture",1);
 
 	//loop to continuously find a face
 	while (1)
 	{
 		//get a new frame
 		 captureFrame = cvQueryFrame(captureDevice);
+		 //captureFrame = raspiCamCvQueryFrame(captureDevice);
 
 		//convert frame to greyscale and equalize
 		cvtColor(captureFrame, greyscaleFrame, CV_BGR2GRAY);
