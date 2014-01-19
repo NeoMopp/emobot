@@ -1,0 +1,5 @@
+CFLAGS = 'pkg-config --cflags opencv --libs opencv'
+CC = g++
+LIBS = -L$(HOME)/git/robidouille/raspicam_cv -lraspicamcv
+	   -L$(HOME)/git/raspberrypi/userland/build/lib -lmmal_core -lmmal -l mmal_util -lvcos -lbcm_host
+INCLUDE = -I$(HOME)/git/robidouille/raspicam_cv
