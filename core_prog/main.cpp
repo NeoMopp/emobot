@@ -23,27 +23,26 @@ using namespace cv;
 //Code copied from Phillip Wagner 
 //Source available at: http://docs.opencv.org/trunk/modules/contrib/doc/facerec/facerec_tutorial.html
 //Needed incase we want to remember people at a later date.
-static void read_csv (const string& filename, vector<Mat>& images, vector<int>& labels, char separator = ';')
-{
-	ifstream file(filename.c_str(), ifstream::in);
-	if (!file)
-	{
-		string error_message = "No valid input file was given, please check the given filename.";
-		CV_Error(CV_StsBadArg, error_message);
-	}
-	string line, path, classlabel;
-	while (getline(file, line)) 
-	{
-        stringstream liness(line);
-        getline(liness, path, separator);
-        getline(liness, classlabel);
-        if(!path.empty() && !classlabel.empty()) 
-		{
-            images.push_back(imread(path, 0));
-            labels.push_back(atoi(classlabel.c_str()));
-        }
-	}
-}
+//static void read_csv (const string& filename, vector<Mat>& images, vector<int>& labels, char separator = ';')
+//{
+//	ifstream file(filename.c_str(), ifstream::in);
+//	if (!file)
+//	{
+//		string error_message = "No valid input file was given, please check the given filename.";
+//		CV_Error(CV_StsBadArg, error_message);
+//	}
+//	string line, path, classlabel;
+//	while (getline(file, line)) 
+//	{
+//       getline(liness, path, separator);
+//       getline(liness, classlabel);
+//        if(!path.empty() && !classlabel.empty()) 
+//		{
+//            images.push_back(imread(path, 0));
+//            labels.push_back(atoi(classlabel.c_str()));
+//       }
+//	}
+//}
 
 //Main of program argc is the number of arguments while argv is the arguments
 //said argument are normally locations of files
@@ -53,7 +52,7 @@ int main(int argc, char* argv[])
 	
 	//create classifier and load a cascade file into it, to allow for face detection.
 	CascadeClassifier face_cascade;
-	face_cascade.load("C:/openCV/data/haarcascades/haarcascade_frontalface_alt.xml");
+	face_cascade.load("~/git/emobot/core_prog/haarcascade_frontalface_alt.xml");
 
 	//set VideoCapture variable and link it to camera.
 	//CvCapture *captureDevice = cvCreateCameraCapture(0);
