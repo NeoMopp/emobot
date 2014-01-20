@@ -5,6 +5,9 @@
 #include "opencv2/core/core.hpp"
 #include "opencv2/contrib/contrib.hpp"
 
+//Requied t run on raspberryPi
+#include "facerec.hpp"
+
 //rapberrypicam_cv include directories
 #include "RaspiCamCV.h"
 
