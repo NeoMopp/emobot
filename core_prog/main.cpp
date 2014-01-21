@@ -55,8 +55,9 @@ int main(int argc, char* argv[])
 	
 	//create classifier and load a cascade file into it, to allow for face detection.
 	CascadeClassifier face_cascade;
-	face_cascade.load("~/git/emobot/core_prog/haarcascade_frontalface_alt.xml");
-
+	face_cascade.load("haarcascade_frontalface_alt.xml");
+	if (face_cascade.empty() == true)
+	{cout<<"empty";}
 	//set VideoCapture variable and link it to camera.
 	//CvCapture *captureDevice = cvCreateCameraCapture(0);
 	RaspiCamCvCapture *captureDevice = raspiCamCvCreateCameraCapture(0);
@@ -101,7 +102,7 @@ int main(int argc, char* argv[])
 		cout<<faces.size()<<endl;
 
 		imshow("outputCapture", captureFrame);
-		if (waitKey(1000) == 27)
+		if (waitKey(33) == 27)
 		{
 			cout<<"Process ended"<<endl;
 			break;
