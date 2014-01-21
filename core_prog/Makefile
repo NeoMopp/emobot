@@ -1,6 +1,5 @@
 CFLAGS_OPENCV:= -I/usr/include/opencv
-CLFAGS_OPENCV2:= -I/usr/include/opencv2
-LDFLAGS2_OPENCV:= -lopencv_highgui -lopencv_core -lopencv_legacy -lopencv_video -lopencv_features2d -lopencv_calib3d -lopencv_imgproc
+LDFLAGS2_OPENCV:= -lopencv_highgui -lopencv_core -lopencv_legacy -lopencv_video -lopencv_features2d -lopencv_calib3d -lopencv_imgproc -lopencv_objdetect
 CC := g++
 HOME := /home/pi
 LDFLAGS_CAMCV := -L$(HOME)/git/robidouille/raspicam_cv -lraspicamcv
