@@ -54,7 +54,7 @@ int main(int argc, char* argv[])
 	//create classifier and load a cascade file into it, to allow for face detection.
 	CascadeClassifier face_cascade;
 	face_cascade.load("C:/openCV/data/haarcascades/haarcascade_frontalface_alt.xml");
-
+	
 	//set VideoCapture variable and link it to camera.
 	CvCapture *captureDevice = cvCreateCameraCapture(0);
 	//RaspiCamCvCapture *captureDevice = raspiCamCvCreateCameraCapture();
