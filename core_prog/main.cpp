@@ -66,19 +66,20 @@ int main(int argc, char* argv[])
 		vector<Rect> faces;
 		
 		face_cascade.detectMultiScale(greyscaleFrame, faces, 1.1, 3, CV_HAAR_SCALE_IMAGE, Size(30,30));
+		imshow("outputCapture", captureFrame);
 		//Write to text file
-		if (faces.length() > 0)
+		if (faces.size() > 0)
 		{
 			ofstream myfile ("faces.txt");
 			if (myfile.is_open())
 			{
 				myfile<< "1";
-				myfile.close;
+				myfile.close();
 			}
 			else cout<< "Unable to openfile";
 		}
 
-		if (waitKey(33) == 27)
+		if (waitKey(10) == 27)
 		{
 			cout<<"Process ended"<<endl;
 			break;
