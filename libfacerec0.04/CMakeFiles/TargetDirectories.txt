@@ -1,0 +1,2 @@
+/home/pi/git/emobot/libfacerec0.04/CMakeFiles/fisherfaces.dir
+/home/pi/git/emobot/libfacerec0.04/CMakeFiles/opencv_facerec.dir
