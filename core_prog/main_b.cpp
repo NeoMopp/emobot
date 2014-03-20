@@ -22,6 +22,31 @@ using namespace std;
 using namespace cv;
 
 
+//Allows for read in of csv files which are used to build the classifier.
+//Code copied from Phillip Wagner 
+//Source available at: http://docs.opencv.org/trunk/modules/contrib/doc/facerec/facerec_tutorial.html
+//Needed incase we want to remember people at a later date.
+//static void read_csv (const string& filename, vector<Mat>& images, vector<int>& labels, char separator = ';')
+//{
+//	ifstream file(filename.c_str(), ifstream::in);
+//	if (!file)
+//	{
+//		string error_message = "No valid input file was given, please check the given filename.";
+//		CV_Error(CV_StsBadArg, error_message);
+//	}
+//	string line, path, classlabel;
+//	while (getline(file, line)) 
+//	{
+//       getline(liness, path, separator);
+//       getline(liness, classlabel);
+//        if(!path.empty() && !classlabel.empty()) 
+//		{
+//            images.push_back(imread(path, 0));
+//            labels.push_back(atoi(classlabel.c_str()));
+//       }
+//	}
+//}
+
 //Main of program argc is the number of arguments while argv is the arguments
 //said argument are normally locations of files
 int main(int argc, char* argv[])
@@ -66,18 +91,16 @@ int main(int argc, char* argv[])
 		vector<Rect> faces;
 		
 		face_cascade.detectMultiScale(greyscaleFrame, faces, 1.1, 3, CV_HAAR_SCALE_IMAGE, Size(30,30));
-		//Write to text file
-		if (faces.length() > 0)
-		{
-			ofstream myfile ("faces.txt");
-			if (myfile.is_open())
-			{
-				myfile<< "1";
-				myfile.close;
-			}
-			else cout<< "Unable to openfile";
-		}
 
+		for(int i = 0; i < faces.size(); i++)
+        	{
+            		Point pt1(faces[i].x + faces[i].width, faces[i].y + faces[i].height);
+            		Point pt2(faces[i].x, faces[i].y);
+ 			rectangle(captureFrame, pt1, pt2, cvScalar(0, 255, 0, 0), 1, 8, 0);
+        	}
+		cout<<faces.size()<<endl;
+
+		imshow("outputCapture", captureFrame);
 		if (waitKey(33) == 27)
 		{
 			cout<<"Process ended"<<endl;
