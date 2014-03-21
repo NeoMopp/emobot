@@ -31,12 +31,13 @@ using namespace std;
 using namespace cv;
 
 
-//variables that will be used across the entire program
-public int fd;		 	//needed for the serial write
-public double happiness;	//Keepon's happiness rating
 
 
-
+void sendAction(double& happiness, int& fd)
+{
+	char msg[] = "SOUND PLAY 63;";	
+	write(fd, msg, strlen(msg));
+}
 
 
 
@@ -44,16 +45,12 @@ public double happiness;	//Keepon's happiness rating
 //said argument are normally locations of files
 int main(int argc, char* argv[])
 {
-	public void sendAction()
-	{
-		char msg[] = "SOUND PLAY 63;";	
-		write(fd, msg, strlen(msg));
-	}
+
 	
 	//initalize variables
-	happiness = 0;
-	fd = open("/dev/ttyACM0", O_RDWR);
-	if (fd == -1) 
+	double happiness = 0;				//Keepon's happiness rating
+	int fd = open("/dev/ttyACM0", O_RDWR);		//needed for the serial write
+	if (fd == -1) 	
 	{
   		perror("/dev/ttyACM0");
   		cout<<"Failed to connect";
@@ -77,7 +74,7 @@ int main(int argc, char* argv[])
 	int i;
 	cin>>i;
 	//Need to tell user to connect keepon up and check we can connect
-	sendAction();
+	sendAction(happiness, fd);
 
 
 	//create classifier and load a cascade file into it, to allow for face detection.
@@ -114,7 +111,7 @@ int main(int argc, char* argv[])
 		cvtColor(captureFrame, greyscaleFrame, CV_BGR2GRAY);
 		equalizeHist(greyscaleFrame, greyscaleFrame);
 
-		
+		//Hold faces
 		vector<Rect> faces;
 		
 		face_cascade.detectMultiScale(greyscaleFrame, faces, 1.1, 3, CV_HAAR_SCALE_IMAGE, Size(30,30));
