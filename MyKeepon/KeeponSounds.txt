@@ -1,0 +1,64 @@
+SOUND PLAY 0;		- Single high pitch Bleep
+SOUND PLAY 1;		- Single low pitch Bleep
+SOUND PLAY 2;		- Single short medium pitch Bleep
+SOUND PLAY 3;		- Fast high pitch double bleep
+SOUND PLAY 4;		- Low pitch single buzz
+SOUND PLAY 5;		- Almost scratchy noise
+SOUND PLAY 6;		- low pitch single whistle "up"
+SOUND PLAY 7;		- low pitch single whistle "down"
+SOUND PLAY 8;		- Bleep Bloop high pitch
+SOUND PLAY 9;		- Bleep Bloop medium pitch
+SOUND PLAY 10;		- High pitch single bleep
+SOUND PLAY 11;		- Medium pitch bloop
+SOUND PLAY 12;		- High pitch bleep bleep 
+SOUND PLAY 13;		- High pitch bleep bloop
+SOUND PLAY 14;		- "confused" sound almost high
+SOUND PLAY 15;		- low version of previous
+SOUND PLAY 16;		- lots of successive bleeps
+SOUND PLAY 17;		-"power on" sound
+SOUND PLAY 18;		- "power down" sound
+SOUND PLAY 19;		- repeated fast high bleeps
+SOUND PLAY 20;		- Laughing sound repeated bleeps
+SOUND PLAY 21;		- low beep
+SOUND PLAY 22;		- beep beep ding dong sound see someone?
+SOUND PLAY 23;		- depressed sigh
+SOUND PLAY 24;		- another depressed sSOUND igh
+SOUND PLAY 25;		- depressed sigh
+SOUND PLAY 26;		- rising whistle
+SOUND PLAY 27;		- derpressing whistle
+SOUND PLAY 28;		- high pitch squeak
+SOUND PLAY 29;		- high pitch confirming squeak
+SOUND PLAY 30;		- high pitch I know sound?
+SOUND PLAY 31;		- double above sound
+SOUND PLAY 32;		- twice above - getting excited
+SOUND PLAY 33;		- single beep
+SOUND PLAY 34;		- rising beeps
+SOUND PLAY 35;		- dun dun dun medium pitch
+SOUND PLAY 36;		- series of fun whistles
+SOUND PLAY 37;		- another series of fun whistles
+SOUND PLAY 38;		- squeak
+SOUND PLAY 39;		- dun dun dun
+SOUND PLAY 40;		- beep beep	
+SOUND PLAY 41;		- disappointed sound almost
+SOUND PLAY 42;		- angry sqeak
+SOUND PLAY 43;		- lound squeak
+SOUND PLAY 44;		- crying squeak
+SOUND PLAY 45;		- oh of oh noooo
+SOUND PLAY 46;		- eeky squeak
+SOUND PLAY 47;		- getting excited
+SOUND PLAY 48;		- giggling
+SOUND PLAY 49;		- being tickled
+SOUND PLAY 50;		- lots of annoying noise maybe laughing
+SOUND PLAY 51;		- confirming beep
+SOUND PLAY 52;		- double confirming
+SOUND PLAY 53;		- almost disconnected sound?
+SOUND PLAY 54;		- like a telephone ring
+SOUND PLAY 55;		- angry squeak
+SOUND PLAY 56;		- double angry/grumpy squeak
+SOUND PLAY 57;		- almost wow squeak
+SOUND PLAY 58;		- some awesome noise
+SOUND PLAY 59;		- Squeale
+SOUND PLAY 60;		- single squeeze like a squeeky toy
+SOUND PLAY 61;		- single clack
+SOUND PLAY 62;		- deep no no
+SOUND PLAY 63;		- high pitch noooo

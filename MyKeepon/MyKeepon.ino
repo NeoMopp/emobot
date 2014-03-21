@@ -362,7 +362,7 @@ void loop() {
   bootup();
 
   while (analogRead(0) > 512) {
-    query();
+    //query();
 
     if (Serial.available() > 0) {
       int i = 0;
