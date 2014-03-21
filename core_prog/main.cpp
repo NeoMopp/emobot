@@ -59,8 +59,10 @@ int main(int argc, char* argv[])
 	
 	// the serial port has a brief glitch once we turn it on which generates a
 	// start bit; sleep for 1ms to let it settle
-	sleep(1000);
+	usleep(1000);
 	cout<<"wait"<<endl;
+	int t;
+	cin>> t;
 	//Need to tell user to connect keepon up and check we can connect
 	char msg[] = "SOUND PLAY 63;";
 	write(fd, msg, strlen(msg));
