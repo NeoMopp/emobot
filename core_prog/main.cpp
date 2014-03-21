@@ -31,16 +31,6 @@ using namespace std;
 using namespace cv;
 
 
-
-
-void sendAction(double& happiness, int& fd)
-{
-	char msg[] = "SOUND PLAY 63;";	
-	write(fd, msg, strlen(msg));
-}
-
-
-
 //Main of program argc is the number of arguments while argv is the arguments
 //said argument are normally locations of files
 int main(int argc, char* argv[])
@@ -50,7 +40,7 @@ int main(int argc, char* argv[])
 	//initalize variables
 	double happiness = 0;				//Keepon's happiness rating
 	int fd = open("/dev/ttyACM0", O_RDWR);		//needed for the serial write
-	if (fd == -1) 	
+	if (fd == -1)
 	{
   		perror("/dev/ttyACM0");
   		cout<<"Failed to connect";
@@ -69,12 +59,11 @@ int main(int argc, char* argv[])
 	
 	// the serial port has a brief glitch once we turn it on which generates a
 	// start bit; sleep for 1ms to let it settle
-	sleep(1000);
-	
-	int i;
-	cin>>i;
+	//sleep(1000);
+	//cout<<"wait"<<endl;
 	//Need to tell user to connect keepon up and check we can connect
-	sendAction(happiness, fd);
+	//char msg[] = "SOUND PLAY 63;";
+	//write(fd, msg, strlen(msg));
 
 
 	//create classifier and load a cascade file into it, to allow for face detection.
@@ -121,11 +110,14 @@ int main(int argc, char* argv[])
 		if (faces.size() > 1)
 		{
 			happiness += 10.0;
+			cout<<"face"<<endl;
 		}
 		else 
+		{
 			happiness -= 0.5;
-
-		if (waitKey(10) == 27)
+			cout<<"no face"<<endl;
+		}
+		if (waitKey(5) == 27)
 		{
 			cout<<"Process ended"<<endl;
 			break;
