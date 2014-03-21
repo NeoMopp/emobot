@@ -32,14 +32,10 @@ using namespace cv;
 
 
 //variables that will be used across the entire program
-int fd;		 	//needed for the serial write
-double happiness;	//Keepon's happiness rating
+public int fd;		 	//needed for the serial write
+public double happiness;	//Keepon's happiness rating
 
-public void sendAction()
-{
-	char msg[] = "SOUND PLAY 63;";	
-	write(fd, msg, strlen(msg));
-}
+
 
 
 
@@ -48,6 +44,12 @@ public void sendAction()
 //said argument are normally locations of files
 int main(int argc, char* argv[])
 {
+	public void sendAction()
+	{
+		char msg[] = "SOUND PLAY 63;";	
+		write(fd, msg, strlen(msg));
+	}
+	
 	//initalize variables
 	happiness = 0;
 	fd = open("/dev/ttyACM0", O_RDWR);
