@@ -39,7 +39,7 @@ int main(int argc, char* argv[])
 	
 	//initalize variables
 	double happiness = 0;				//Keepon's happiness rating
-	int fd = open("~/dev/ttyACM0", O_RDWR);		//needed for the serial write
+	int fd = open("/dev/ttyACM0", O_RDWR);		//needed for the serial write
 	if (fd == -1)
 	{
   		perror("/dev/ttyACM0");
