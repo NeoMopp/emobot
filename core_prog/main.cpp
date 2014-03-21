@@ -39,7 +39,7 @@ int main(int argc, char* argv[])
 	
 	//initalize variables
 	double happiness = 0;				//Keepon's happiness rating
-	int fd = open("/dev/ttyACM0", O_RDWR);		//needed for the serial write
+	int fd = open("~/dev/ttyACM0", O_RDWR);		//needed for the serial write
 	if (fd == -1)
 	{
   		perror("/dev/ttyACM0");
@@ -59,11 +59,11 @@ int main(int argc, char* argv[])
 	
 	// the serial port has a brief glitch once we turn it on which generates a
 	// start bit; sleep for 1ms to let it settle
-	//sleep(1000);
-	//cout<<"wait"<<endl;
+	sleep(1000);
+	cout<<"wait"<<endl;
 	//Need to tell user to connect keepon up and check we can connect
-	//char msg[] = "SOUND PLAY 63;";
-	//write(fd, msg, strlen(msg));
+	char msg[] = "SOUND PLAY 63;";
+	write(fd, msg, strlen(msg));
 
 
 	//create classifier and load a cascade file into it, to allow for face detection.
@@ -87,7 +87,7 @@ int main(int argc, char* argv[])
 	Mat greyscaleFrame;
 	
 	//Make window for the output to be displayed in.
-	cvNamedWindow("outputCapture",1);
+	//cvNamedWindow("outputCapture",1);
 
 	//loop to continuously find a face
 	while (1)
@@ -104,18 +104,31 @@ int main(int argc, char* argv[])
 		vector<Rect> faces;
 		
 		face_cascade.detectMultiScale(greyscaleFrame, faces, 1.1, 3, CV_HAAR_SCALE_IMAGE, Size(30,30));
-		imshow("outputCapture", captureFrame);
+		//imshow("outputCapture", captureFrame);
+	
+		//Drawing rectangles around the faces
+		//for(int i = 0; i < faces.size(); i++)
+        	//{
+            	//	Point pt1(faces[i].x + faces[i].width, faces[i].y + faces[i].height);
+            	//	Point pt2(faces[i].x, faces[i].y);
+ 		//	rectangle(captureFrame, pt1, pt2, cvScalar(0, 255, 0, 0), 1, 8, 0);
+        	//}
+
 				
 		//check for faces and change value of happiness dependent of if there is a face.
-		if (faces.size() > 1)
+		if (faces.size() > 0)
 		{
 			happiness += 10.0;
-			cout<<"face"<<endl;
+			cout<<"Faces: "<<faces.size()<<endl;
+			if (happiness > 100.0)
+				happiness = 100.0;
 		}
 		else 
 		{
 			happiness -= 0.5;
-			cout<<"no face"<<endl;
+			cout<<"Faces: "<<faces.size()<<endl;
+			if (happiness < -100.0)
+				happiness = -100.0;
 		}
 		if (waitKey(5) == 27)
 		{
