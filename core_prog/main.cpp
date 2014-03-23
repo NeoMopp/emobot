@@ -27,18 +27,17 @@
 #include <string.h>
 #include <unistd.h>
 
+//includes to allow for threading
+#include <thread>
+
 using namespace std;
 using namespace cv;
 
+double happiness;
+bool keepConnected;
 
-//Main of program argc is the number of arguments while argv is the arguments
-//said argument are normally locations of files
-int main(int argc, char* argv[])
+void sendAction()
 {
-
-	
-	//initalize variables
-	double happiness = 0;				//Keepon's happiness rating
 	int fd = open("/dev/ttyACM0", O_RDWR);		//needed for the serial write
 	if (fd == -1)
 	{
@@ -60,14 +59,69 @@ int main(int argc, char* argv[])
 	// the serial port has a brief glitch once we turn it on which generates a
 	// start bit; sleep for 1ms to let it settle
 	usleep(1000);
-	cout<<"wait"<<endl;
-	int t;
-	cin>> t;
-	//Need to tell user to connect keepon up and check we can connect
-	char msg[] = "SOUND PLAY 63;";
-	write(fd, msg, strlen(msg));
+	while (keepConnected == false)
+	{
+		cout<<"Connect Keepon."<<endl;
+		int t;
+		cin>> t;
+		//Need to tell user to connect keepon up and check we can connect
+		cout<<"Testing"<<endl;
+		char msg[] = "SOUND PLAY 17;";
+		write(fd, msg, strlen(msg));
+		cout<<"Success ?"<<endl;
+		cin>>t;
+		if (t == 3)
+			keepConnected = true;
+	}
+
+	while (keepConnected  == true)
+	{
+		if ((happiness > -10) && (happiness < 11))
+		{
+			cout<<"Happiness"<<happiness<<endl;
+		}
+		if ((happiness > 10) && (happiness < 21))
+		{
+			cout<<"Happiness"<<happiness<<endl;
+		}
+		if ((happiness > 20) && (happiness < 31))
+		{
+			cout<<"Happiness"<<happiness<<endl;
+		}
+		if ((happiness > 30) && (happiness < 41))
+		{
+			cout<<"Happiness"<<happiness<<endl;
+		}
+		if ((happiness > 40) && (happiness < 51))
+		{
+			cout<<"Happiness"<<happiness<<endl;
+		}
+
+		if ((happiness > -20) && (happiness < -11))
+		{
+			cout<<"Happiness"<<happiness<<endl;
+		}
+		if ((happiness > -30) && (happiness < -21))
+		{
+			cout<<"Happiness"<<happiness<<endl;
+		}
+		if ((happiness > -40) && (happiness < -41))
+		{
+			cout<<"Happiness"<<happiness<<endl;
+		}
+		if ((happiness > -50) && (happiness < -51))
+		{
+			cout<<"Happiness"<<happiness<<endl;
+		}
+
+	}
+}
 
 
+
+
+void faceDetect()
+{
 	//create classifier and load a cascade file into it, to allow for face detection.
 	CascadeClassifier face_cascade;
 	face_cascade.load("haarcascade_frontalface_alt.xml");
@@ -90,6 +144,11 @@ int main(int argc, char* argv[])
 	
 	//Make window for the output to be displayed in.
 	//cvNamedWindow("outputCapture",1);
+
+	while (keepConnected == false)
+	{
+		cout<<"Waiting..."<<endl;
+	}
 
 	//loop to continuously find a face
 	while (1)
@@ -138,5 +197,17 @@ int main(int argc, char* argv[])
 			break;
 		}
 	}
+}
+
+//Main of program argc is the number of arguments while argv is the arguments
+//said argument are normally locations of files
+int main(int argc, char* argv[])
+{
+	//initalize variables
+	happiness = 0;				//Keepon's happiness rating
+	keepConnected = false;
+	thread camera(facedetect);		//Start the faceDetection thread
+	thread action(sendAction);		//start the Keepon Control thread
+
 	return 0;
 }

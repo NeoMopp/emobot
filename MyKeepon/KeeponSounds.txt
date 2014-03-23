@@ -21,7 +21,7 @@ SOUND PLAY 19;		- repeated fast high bleeps
 SOUND PLAY 20;		- Laughing sound repeated bleeps
 SOUND PLAY 21;		- low beep
 SOUND PLAY 22;		- beep beep ding dong sound see someone?
-SOUND PLAY 23;		- depressed sigh
+SOUND PLAY 23;		- depressed sigh		GETTING SAD
 SOUND PLAY 24;		- another depressed sSOUND igh
 SOUND PLAY 25;		- depressed sigh
 SOUND PLAY 26;		- rising whistle
@@ -42,13 +42,13 @@ SOUND PLAY 40;		- beep beep
 SOUND PLAY 41;		- disappointed sound almost
 SOUND PLAY 42;		- angry sqeak
 SOUND PLAY 43;		- lound squeak
-SOUND PLAY 44;		- crying squeak
+SOUND PLAY 44;		- crying squeak		DONT USE
 SOUND PLAY 45;		- oh of oh noooo
 SOUND PLAY 46;		- eeky squeak
 SOUND PLAY 47;		- getting excited
 SOUND PLAY 48;		- giggling
 SOUND PLAY 49;		- being tickled
-SOUND PLAY 50;		- lots of annoying noise maybe laughing
+SOUND PLAY 50;		- lots of annoying noise maybe laughing      EXCITED
 SOUND PLAY 51;		- confirming beep
 SOUND PLAY 52;		- double confirming
 SOUND PLAY 53;		- almost disconnected sound?
