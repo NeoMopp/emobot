@@ -78,40 +78,48 @@ void sendAction()
 	{
 		if ((happiness > -10) && (happiness < 11))
 		{
-			cout<<"Happiness"<<happiness<<endl;
+			//cout<<"Happiness"<<happiness<<endl;
+			write(fd, msg, strlen(msg));
 		}
 		if ((happiness > 10) && (happiness < 21))
 		{
-			cout<<"Happiness"<<happiness<<endl;
+			//cout<<"Happiness"<<happiness<<endl;			
+			write(fd, msg, strlen(msg));
 		}
 		if ((happiness > 20) && (happiness < 31))
 		{
-			cout<<"Happiness"<<happiness<<endl;
+			//cout<<"Happiness"<<happiness<<endl;
+			write(fd, msg, strlen(msg));
 		}
 		if ((happiness > 30) && (happiness < 41))
 		{
-			cout<<"Happiness"<<happiness<<endl;
+			//cout<<"Happiness"<<happiness<<endl;
 		}
 		if ((happiness > 40) && (happiness < 51))
 		{
-			cout<<"Happiness"<<happiness<<endl;
+			//cout<<"Happiness"<<happiness<<endl;
+			write(fd, msg, strlen(msg));
 		}
 
 		if ((happiness > -20) && (happiness < -11))
 		{
-			cout<<"Happiness"<<happiness<<endl;
+			//cout<<"Happiness"<<happiness<<endl;
+			write(fd, msg, strlen(msg));
 		}
 		if ((happiness > -30) && (happiness < -21))
 		{
-			cout<<"Happiness"<<happiness<<endl;
+			//cout<<"Happiness"<<happiness<<endl;
+			write(fd, msg, strlen(msg));
 		}
 		if ((happiness > -40) && (happiness < -41))
 		{
-			cout<<"Happiness"<<happiness<<endl;
+			//cout<<"Happiness"<<happiness<<endl;
+			write(fd, msg, strlen(msg));
 		}
 		if ((happiness > -50) && (happiness < -51))
 		{
-			cout<<"Happiness"<<happiness<<endl;
+			//out<<"Happiness"<<happiness<<endl;
+			write(fd, msg, strlen(msg));
 		}
 
 	}
@@ -148,7 +156,7 @@ void faceDetect()
 
 	while (keepConnected == false)
 	{
-		cout<<"Waiting..."<<endl;
+		//cout<<"Waiting..."<<endl;
 	}
 
 	//loop to continuously find a face
