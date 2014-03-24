@@ -1,35 +1,93 @@
 #!/usr/bin/env python
 import sys
+import time
 from twython import Twython, TwythonStreamer
 
 class MyStreamer(TwythonStreamer):
 	def on_success(self, data):
+		try:
+			arduino = serial.Serial("/dev/ttyACM0",115200)
+		except:
+			print'Failed to connect to device'
 		if 'text' in data:
 			t = data['text'].encode('utf-8')
 			if t.find("happy") == 1:
-				#do something
+				arduino.write("MOVE SIDE LEFT;")
+				time.sleep(2)
+				arduino.write("MOVE SIDE RIGHT;")
+				time.sleep(2)
+				arduino.write("MOVE SIDE LEFT;")
+				time.sleep(2)
+				arduino.write("MOVE SIDE RIGHT;")
+				time.sleep(2)
+				arduino.write("MOVE PON UP;")
+				time.sleep(2)
+				arduino.write("MOVE PON DOWN;")
+				time.sleep(2)
 				print t
 			elif t.find("sad") == 1:
-				#do something
+				arduino.write("SOUND PLAY 23;")
+				time.sleep(2)
+				arduino.write("MOVE TILT 100;")
+				time.sleep(2)
+				arduino.write("MOVE PAN 25;")
+				time.sleep(2)
+				arduino.write("MOVE PAN -25;")
+				time.sleep(2)
+				arduino.write("MOVE PAN 0;")
+				time.sleep(2)
+				arduino.write("MOVE PON UP;")
+				time.sleep(2)
+				arduino.write("MOVE PON DOWN;")
+				time.sleep(2)
 				print t
 			elif t.find("fear") == 1:
-				#do something
+				arduino.write("MOVE TILT 0;")
+				time.sleep(2)
+				arduino.write("SOUND PLAY 44;")
+				time.sleep(2)
+				arduino.write("SOUND PLAY 44;")
+				time.sleep(2)
+				arduino.write("MOVE TILT 100;")
+				time.sleep(2)
 				print t
 			elif t.find("anger") == 1:
-				#do something
+				arduino.write("MOVE SIDE LEFT;")
+				time.sleep(2)
+				arduino.write("MOVE SIDE RIGHT;")
+				time.sleep(2)
+				arduino.write("MOVE SIDE LEFT;")
+				time.sleep(2)
+				arduino.write("MOVE SIDE RIGHT;")
+				time.sleep(2)
+				arduino.write("MOVE TILT 100;")
+				time.sleep(2)
+				arduino.write("MOVE TILT -100;")
+				time.sleep(2)
+				arduino.write("MOVE TILT 100;")
+				time.sleep(2)
+				arduino.write("MOVE TILT -100;")
+				time.sleep(2)
 				print t
 			elif t.find("suprise") == 1:
-				#do something
+				arduino.write("SOUND PLAY 49;")
+				time.sleep(2)
+				arduino.write("MOVE PON 100;")
+				time.sleep(2)
 				print t
 			elif t.find("disgust") == 1:
-				#do something
+				arduino.write("MOVE PAN 25;")
+				time.sleep(2)
+				arduino.write("MOVE PAN -25;")
+				time.sleep(2)
+				arduino.write("SOUND PLAY 41;")
+				time.sleep(2)
 				print t
 			elif t.find("dance") == 1:
 				#do something
 				print t
 			else:
 				print t					
-				print "Hello Friend"
 				
 	def on_error(self, status_code, data):
 		print status_code
