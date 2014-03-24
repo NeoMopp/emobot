@@ -43,7 +43,7 @@ void sendAction()
 	{
   		perror("/dev/ttyACM0");
   		cout<<"Failed to connect";
-  		return 1;
+  //		return 1;
 	}
 
 	//Set up the serial port to allow for writing to it.
@@ -115,6 +115,7 @@ void sendAction()
 		}
 
 	}
+//return 1;
 }
 
 
@@ -136,7 +137,7 @@ void faceDetect()
 	if (!captureDevice)
 	{
 		cout<<"Capture device not found please fix"<<endl;
-		return -1;
+//		return -1;
 	}
 	//create some matricies to be used in the program.
 	Mat captureFrame;
@@ -197,6 +198,7 @@ void faceDetect()
 			break;
 		}
 	}
+//return 1;
 }
 
 //Main of program argc is the number of arguments while argv is the arguments
@@ -206,8 +208,11 @@ int main(int argc, char* argv[])
 	//initalize variables
 	happiness = 0;				//Keepon's happiness rating
 	keepConnected = false;
-	thread camera(facedetect);		//Start the faceDetection thread
+	thread camera(faceDetect);		//Start the faceDetection thread
 	thread action(sendAction);		//start the Keepon Control thread
-
+	
+	//wait till threads have completed.
+	camera.join();
+	action.join();
 	return 0;
 }
