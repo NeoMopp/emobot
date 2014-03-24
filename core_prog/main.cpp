@@ -79,47 +79,57 @@ void sendAction()
 		if ((happiness > -10) && (happiness < 11))
 		{
 			//cout<<"Happiness"<<happiness<<endl;
-			write(fd, msg, strlen(msg));
+			char mst[] = "SOUND PLAY 24;";
+			write(fd, mst, strlen(mst));
 		}
 		if ((happiness > 10) && (happiness < 21))
 		{
 			//cout<<"Happiness"<<happiness<<endl;			
-			write(fd, msg, strlen(msg));
+			char mst[] = "SOUND PLAY 34;";
+			write(fd, mst, strlen(mst));
 		}
 		if ((happiness > 20) && (happiness < 31))
 		{
 			//cout<<"Happiness"<<happiness<<endl;
-			write(fd, msg, strlen(msg));
+			char mst[] = "SOUND PLAY 14;";
+			write(fd, mst, strlen(mst));
 		}
 		if ((happiness > 30) && (happiness < 41))
 		{
 			//cout<<"Happiness"<<happiness<<endl;
+			char mst[] = "SOUND PLAY 20;";
+			write(fd, mst, strlen(mst));
 		}
 		if ((happiness > 40) && (happiness < 51))
 		{
 			//cout<<"Happiness"<<happiness<<endl;
-			write(fd, msg, strlen(msg));
+			char mst[] = "SOUND PLAY 63;";
+			write(fd, mst, strlen(mst));
 		}
 
 		if ((happiness > -20) && (happiness < -11))
 		{
 			//cout<<"Happiness"<<happiness<<endl;
-			write(fd, msg, strlen(msg));
+			char mst[] = "SOUND PLAY 11;";
+			write(fd, mst, strlen(mst));
 		}
 		if ((happiness > -30) && (happiness < -21))
 		{
 			//cout<<"Happiness"<<happiness<<endl;
-			write(fd, msg, strlen(msg));
+			char mst[] = "SOUND PLAY 19;";
+			write(fd, mst, strlen(mst));
 		}
 		if ((happiness > -40) && (happiness < -41))
 		{
 			//cout<<"Happiness"<<happiness<<endl;
-			write(fd, msg, strlen(msg));
+			char mst[] = "SOUND PLAY 45;";
+			write(fd, mst, strlen(mst));
 		}
 		if ((happiness > -50) && (happiness < -51))
 		{
 			//out<<"Happiness"<<happiness<<endl;
-			write(fd, msg, strlen(msg));
+			char mst[] = "SOUND PLAY 23;";
+			write(fd, mst, strlen(mst));
 		}
 
 	}
