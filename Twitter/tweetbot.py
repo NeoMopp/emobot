@@ -1,14 +1,11 @@
 #!/usr/bin/env python
 import sys
 import time
+import serial
 from twython import Twython, TwythonStreamer
 
 class MyStreamer(TwythonStreamer):
 	def on_success(self, data):
-		try:
-			arduino = serial.Serial("/dev/ttyACM0",115200)
-		except:
-			print'Failed to connect to device'
 		if 'text' in data:
 			t = data['text'].encode('utf-8')
 			if t.find("happy") == 1:
@@ -25,6 +22,7 @@ class MyStreamer(TwythonStreamer):
 				arduino.write("MOVE PON DOWN;")
 				time.sleep(2)
 				print t
+				print ' Happy!'
 			elif t.find("sad") == 1:
 				arduino.write("SOUND PLAY 23;")
 				time.sleep(2)
@@ -41,6 +39,7 @@ class MyStreamer(TwythonStreamer):
 				arduino.write("MOVE PON DOWN;")
 				time.sleep(2)
 				print t
+				print ' Sad !'
 			elif t.find("fear") == 1:
 				arduino.write("MOVE TILT 0;")
 				time.sleep(2)
@@ -51,6 +50,7 @@ class MyStreamer(TwythonStreamer):
 				arduino.write("MOVE TILT 100;")
 				time.sleep(2)
 				print t
+				print 'Fear'
 			elif t.find("anger") == 1:
 				arduino.write("MOVE SIDE LEFT;")
 				time.sleep(2)
@@ -83,6 +83,7 @@ class MyStreamer(TwythonStreamer):
 				arduino.write("SOUND PLAY 41;")
 				time.sleep(2)
 				print t
+				print 'Disgust'
 			elif t.find("dance") == 1:
 				#do something
 				print t
@@ -100,6 +101,23 @@ ACCESS_SECRET = 'mz7OT8g5xAsP1Nt9nyUiwmXKrtMJicuLoDjWGTvy7XKfa'
 #api = Twython(CONSUMER_KEY,CONSUMER_SECRET,ACCESS_KEY,ACCESS_SECRET) 
 
 #api.update_status(status=sys.argv[1])
+
+try:
+	arduino = serial.Serial("/dev/ttyACM0", 115200)
+except:
+	print 'Failed to connect to device'
+
+while True:
+	t = raw_input('Please Connect Device. Is Device Connected?(Y/N): ' )
+	if t == 'Y':
+		print 'Testing..'
+		arduino.write("MOVE PON UP;")
+		t2 = raw_input('Was test successful?')
+		if t2 == 'Y':
+			print 'Program Starting...'
+			break
+		else:
+			'Resetting'
 
 stream = MyStreamer(CONSUMER_KEY,CONSUMER_SECRET,ACCESS_KEY,ACCESS_SECRET)
 stream.user()

@@ -76,11 +76,14 @@ void sendAction()
 
 	while (keepConnected  == true)
 	{
+		//Sleep for 20seconds just to prevent loads of reapted emotions
+		sleep(20);
 		if ((happiness > -10) && (happiness < 11))
 		{
 			//cout<<"Happiness"<<happiness<<endl;
-			char mst[] = "SOUND PLAY 24;";
+			char mst[] = "SOUND PLAY 24;"
 			write(fd, mst, strlen(mst));
+			mst[] = "MOVE PON LEFT;";
 		}
 		if ((happiness > 10) && (happiness < 21))
 		{
