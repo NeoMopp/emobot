@@ -42,7 +42,7 @@ void sendAction()
 	if (fd == -1)
 	{
   		perror("/dev/ttyACM0");
-  		cout<<"Failed to connect";
+  		cout<<"Failed to connect to Arduino. Please connect Arduino.";
   //		return 1;
 	}
 
@@ -59,81 +59,206 @@ void sendAction()
 	// the serial port has a brief glitch once we turn it on which generates a
 	// start bit; sleep for 1ms to let it settle
 	usleep(1000);
-	while (keepConnected == false)
+	while (!keepConnected)
 	{
-		cout<<"Connect Keepon."<<endl;
-		int t;
-		cin>> t;
 		//Need to tell user to connect keepon up and check we can connect
-		cout<<"Testing"<<endl;
-		char msg[] = "SOUND PLAY 17;";
-		write(fd, msg, strlen(msg));
-		cout<<"Success ?"<<endl;
-		cin>>t;
-		if (t == 3)
-			keepConnected = true;
+		cout<<"Is Keepon Connected(Y/N)?: ";
+		string input;
+		getline(cin, input);
+		if (input.find("Y") != std::string::npos)
+		{		
+			out<<"Perfoming test."<<endl;
+			char msg[] = "SOUND PON UP;";
+			write(fd, msg, strlen(msg));
+			msg[] = "SOUND PON DOWN;";
+			write(fd, msg, strlen(msg));
+			cout<<"Was the test a success(Y/N)?:"<<endl;
+			getline(cin, input);
+			if (input.find("Y") != std::string::npos)
+				keepConnected = true;
+		}
+		cout<<"Keepon needs to be connected please connect."
 	}
 
 	while (keepConnected  == true)
 	{
 		//Sleep for 20seconds just to prevent loads of reapted emotions
-		sleep(20);
+		//sleep(20);
 		if ((happiness > -10) && (happiness < 11))
 		{
-			//cout<<"Happiness"<<happiness<<endl;
-			char mst[] = "SOUND PLAY 24;"
+			char mst[] = ("MOVE TILT 0;");
 			write(fd, mst, strlen(mst));
-			mst[] = "MOVE PON LEFT;";
+			mst[] = ("MOVE PAN 0;");
+			write(fd, mst, strlen(mst));
 		}
 		if ((happiness > 10) && (happiness < 21))
-		{
-			//cout<<"Happiness"<<happiness<<endl;			
-			char mst[] = "SOUND PLAY 34;";
+		{			
+			char mst[] = ("MOVE SIDE LEFT;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE SIDE RIGHT;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("SOUND PLAY 40;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE SIDE LEFT;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE SIDE RIGHT;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("SOUND PLAY 40;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE SIDE LEFT;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE SIDE RIGHT;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("SOUND PLAY 40;");
 			write(fd, mst, strlen(mst));
 		}
 		if ((happiness > 20) && (happiness < 31))
 		{
-			//cout<<"Happiness"<<happiness<<endl;
-			char mst[] = "SOUND PLAY 14;";
+			char mst[] = ("MOVE SIDE LEFT;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE SIDE RIGHT;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE PON UP;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE PON DOWN;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE SIDE LEFT;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE SIDE RIGHT;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE PON UP;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE PON DOWN;");
 			write(fd, mst, strlen(mst));
 		}
 		if ((happiness > 30) && (happiness < 41))
 		{
-			//cout<<"Happiness"<<happiness<<endl;
-			char mst[] = "SOUND PLAY 20;";
+			char mst[] = ("MOVE SIDE LEFT;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE SIDE RIGHT;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("SOUND PLAY 58;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE SIDE LEFT;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE SIDE RIGHT;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("SOUND PLAY 58;");	
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE PON UP;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE PON DOWN;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("SOUND PLAY 58;");
 			write(fd, mst, strlen(mst));
 		}
 		if ((happiness > 40) && (happiness < 51))
 		{
-			//cout<<"Happiness"<<happiness<<endl;
-			char mst[] = "SOUND PLAY 63;";
+			char mst[] = ("MOVE LEFT;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE RIGHT;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE PON UP;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE PON DOWN;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("SOUND PLAY 48;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE PAN 50;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE LEFT;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE RIGHT;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE PON UP;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE PON DOWN;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("SOUND PLAY 48;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE PAN -50;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE LEFT;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE RIGHT;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE PON UP;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE PON DOWN;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("SOUND PLAY 48;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE PAN 0;");
 			write(fd, mst, strlen(mst));
 		}
 
 		if ((happiness > -20) && (happiness < -11))
 		{
-			//cout<<"Happiness"<<happiness<<endl;
-			char mst[] = "SOUND PLAY 11;";
+			char mst[] = ("MOVE TILT -100;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE PAN -25;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE PAN 25;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE PAN 0;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE PON UP;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE PON DOWN;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE TILT 100;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("SOUND PLAY 23;");
 			write(fd, mst, strlen(mst));
 		}
 		if ((happiness > -30) && (happiness < -21))
 		{
-			//cout<<"Happiness"<<happiness<<endl;
-			char mst[] = "SOUND PLAY 19;";
+			char mst[] = ("SOUND PLAY 23;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE TILT 100;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE PAN 25;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE TILT -100;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE TILT 0;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE PAN -25;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE TILT -100;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("SOUND PLAY 23;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE TILT 0;");
 			write(fd, mst, strlen(mst));
 		}
 		if ((happiness > -40) && (happiness < -41))
 		{
-			//cout<<"Happiness"<<happiness<<endl;
-			char mst[] = "SOUND PLAY 45;";
+			char mst[] = ("MOVE SIDE LEFT;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE SIDE RIGHT;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE SIDE LEFT;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE SIDE RIGHT;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE TILT -100;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("SOUND PLAY 23;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE TILT 0;");
 			write(fd, mst, strlen(mst));
 		}
 		if ((happiness > -50) && (happiness < -51))
 		{
-			//out<<"Happiness"<<happiness<<endl;
-			char mst[] = "SOUND PLAY 23;";
+			char mst[] = ("SOUND PLAY 23;");
 			write(fd, mst, strlen(mst));
-		}
+			mst[] = ("MOVE TILT 100;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE PAN 25;");
+			write(fd, mst, strlen(mst));
+			mst[] = ("MOVE PAN -25;");
+			write(fd, mst, strlen(mst));
 
 	}
 //return 1;
@@ -163,21 +288,30 @@ void faceDetect()
 	//create some matricies to be used in the program.
 	Mat captureFrame;
 	Mat greyscaleFrame;
+
+	//need a temporary varibale to ensure we dont keep detecting faces and spike values wayyy to high.
+	//boolean to check if someone was in the last frame
+	int counter = 0;
+	bool lastScene = false;
 	
 	//Make window for the output to be displayed in.
-	//cvNamedWindow("outputCapture",1);
+	cvNamedWindow("outputCapture",1);
 
-	while (keepConnected == false)
+	while (!keepConnected)
 	{
 		//cout<<"Waiting..."<<endl;
 	}
 
 	//loop to continuously find a face
-	while (1)
+	while (keepConnected)
 	{
+		//Check if counter exceeds 100, if it does set it to 0
+		if (counter > 100)
+			counter = 0;
+
 		//get a new frame
 		//captureFrame = cvQueryFrame(captureDevice);
-		 captureFrame = raspiCamCvQueryFrame(captureDevice);
+		captureFrame = raspiCamCvQueryFrame(captureDevice);
 
 		//convert frame to greyscale and equalize
 		cvtColor(captureFrame, greyscaleFrame, CV_BGR2GRAY);
@@ -187,31 +321,43 @@ void faceDetect()
 		vector<Rect> faces;
 		
 		face_cascade.detectMultiScale(greyscaleFrame, faces, 1.1, 3, CV_HAAR_SCALE_IMAGE, Size(30,30));
-		//imshow("outputCapture", captureFrame);
-	
+		
+		//Here we output what the camera sees		
+		imshow("outputCapture", captureFrame);
 		//Drawing rectangles around the faces
-		//for(int i = 0; i < faces.size(); i++)
-        	//{
-            	//	Point pt1(faces[i].x + faces[i].width, faces[i].y + faces[i].height);
-            	//	Point pt2(faces[i].x, faces[i].y);
- 		//	rectangle(captureFrame, pt1, pt2, cvScalar(0, 255, 0, 0), 1, 8, 0);
-        	//}
+		for(int i = 0; i < faces.size(); i++)
+        	{
+            		Point pt1(faces[i].x + faces[i].width, faces[i].y + faces[i].height);
+            		Point pt2(faces[i].x, faces[i].y);
+ 			rectangle(captureFrame, pt1, pt2, cvScalar(0, 255, 0, 0), 1, 8, 0);
+        	}
 
 				
 		//check for faces and change value of happiness dependent of if there is a face.
 		if (faces.size() > 0)
 		{
-			happiness += 10.0;
+			if (lastScene == false && counter = 0)
+			{
+				happiness += 10.0;
+				counter++;
+			}
+			else 
+			{
+				happiness += 1.0;
+				counter++;
+			}			
 			cout<<"Faces: "<<faces.size()<<endl;
-			if (happiness > 100.0)
-				happiness = 100.0;
+			if (happiness > 50.0)
+				happiness = 50.0;
+			lastScene = true;
 		}
 		else 
 		{
+			lastScene = false;
 			happiness -= 0.5;
 			cout<<"Faces: "<<faces.size()<<endl;
-			if (happiness < -100.0)
-				happiness = -100.0;
+			if (happiness < -50.0)
+				happiness = -50.0;
 		}
 		if (waitKey(5) == 27)
 		{
