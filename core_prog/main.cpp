@@ -259,6 +259,7 @@ void sendAction()
 			write(fd, mst, strlen(mst));
 			strcpy(mst,"MOVE PAN -25;");
 			write(fd, mst, strlen(mst));
+		}
 
 	}
 //return 1;
