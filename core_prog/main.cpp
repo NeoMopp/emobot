@@ -77,7 +77,7 @@ void sendAction()
 			if (input.find("Y") != std::string::npos)
 				keepConnected = true;
 		}
-		cout<<"Keepon needs to be connected please connect."
+		cout<<"Keepon needs to be connected please connect.";
 	}
 
 	while (keepConnected  == true)
