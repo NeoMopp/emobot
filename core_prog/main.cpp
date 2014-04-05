@@ -68,9 +68,9 @@ void sendAction()
 		if (input.find("Y") != std::string::npos)
 		{		
 			cout<<"Perfoming test."<<endl;
-			char msg[] = "SOUND PON UP;";
+			char msg[] = "MOVE PON UP;";
 			write(fd, msg, strlen(msg));
-			strcpy(msg, "SOUND PON DOWN;");
+			strcpy(msg, "MOVE PON DOWN;");
 			write(fd, msg, strlen(msg));
 			cout<<"Was the test a success(Y/N)?:"<<endl;
 			getline(cin, input);
@@ -337,7 +337,7 @@ void faceDetect()
 		//check for faces and change value of happiness dependent of if there is a face.
 		if (faces.size() > 0)
 		{
-			if (lastScene == false && counter = 0)
+			if (lastScene == false && counter == 0)
 			{
 				happiness += 10.0;
 				counter++;
