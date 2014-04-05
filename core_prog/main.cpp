@@ -67,10 +67,10 @@ void sendAction()
 		getline(cin, input);
 		if (input.find("Y") != std::string::npos)
 		{		
-			out<<"Perfoming test."<<endl;
+			cout<<"Perfoming test."<<endl;
 			char msg[] = "SOUND PON UP;";
 			write(fd, msg, strlen(msg));
-			msg[] = "SOUND PON DOWN;";
+			msg = new char[]( "SOUND PON DOWN;");
 			write(fd, msg, strlen(msg));
 			cout<<"Was the test a success(Y/N)?:"<<endl;
 			getline(cin, input);
@@ -88,107 +88,107 @@ void sendAction()
 		{
 			char mst[] = ("MOVE TILT 0;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE PAN 0;");
+			mst = ("MOVE PAN 0;");
 			write(fd, mst, strlen(mst));
 		}
 		if ((happiness > 10) && (happiness < 21))
 		{			
 			char mst[] = ("MOVE SIDE LEFT;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE SIDE RIGHT;");
+			mst = ("MOVE SIDE RIGHT;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("SOUND PLAY 40;");
+			mst = ("SOUND PLAY 40;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE SIDE LEFT;");
+			mst = ("MOVE SIDE LEFT;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE SIDE RIGHT;");
+			mst = ("MOVE SIDE RIGHT;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("SOUND PLAY 40;");
+			mst = ("SOUND PLAY 40;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE SIDE LEFT;");
+			mst = ("MOVE SIDE LEFT;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE SIDE RIGHT;");
+			mst = ("MOVE SIDE RIGHT;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("SOUND PLAY 40;");
+			mst = ("SOUND PLAY 40;");
 			write(fd, mst, strlen(mst));
 		}
 		if ((happiness > 20) && (happiness < 31))
 		{
 			char mst[] = ("MOVE SIDE LEFT;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE SIDE RIGHT;");
+			mst = ("MOVE SIDE RIGHT;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE PON UP;");
+			mst = ("MOVE PON UP;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE PON DOWN;");
+			mst = ("MOVE PON DOWN;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE SIDE LEFT;");
+			mst = ("MOVE SIDE LEFT;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE SIDE RIGHT;");
+			mst = ("MOVE SIDE RIGHT;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE PON UP;");
+			mst = ("MOVE PON UP;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE PON DOWN;");
+			mst = ("MOVE PON DOWN;");
 			write(fd, mst, strlen(mst));
 		}
 		if ((happiness > 30) && (happiness < 41))
 		{
 			char mst[] = ("MOVE SIDE LEFT;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE SIDE RIGHT;");
+			mst = ("MOVE SIDE RIGHT;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("SOUND PLAY 58;");
+			mst = ("SOUND PLAY 58;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE SIDE LEFT;");
+			mst = ("MOVE SIDE LEFT;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE SIDE RIGHT;");
+			mst = ("MOVE SIDE RIGHT;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("SOUND PLAY 58;");	
+			mst = ("SOUND PLAY 58;");	
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE PON UP;");
+			mst = ("MOVE PON UP;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE PON DOWN;");
+			mst = ("MOVE PON DOWN;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("SOUND PLAY 58;");
+			mst = ("SOUND PLAY 58;");
 			write(fd, mst, strlen(mst));
 		}
 		if ((happiness > 40) && (happiness < 51))
 		{
 			char mst[] = ("MOVE LEFT;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE RIGHT;");
+			mst = ("MOVE RIGHT;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE PON UP;");
+			mst = ("MOVE PON UP;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE PON DOWN;");
+			mst = ("MOVE PON DOWN;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("SOUND PLAY 48;");
+			mst = ("SOUND PLAY 48;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE PAN 50;");
+			mst = ("MOVE PAN 50;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE LEFT;");
+			mst = ("MOVE LEFT;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE RIGHT;");
+			mst = ("MOVE RIGHT;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE PON UP;");
+			mst = ("MOVE PON UP;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE PON DOWN;");
+			mst = ("MOVE PON DOWN;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("SOUND PLAY 48;");
+			mst = ("SOUND PLAY 48;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE PAN -50;");
+			mst = ("MOVE PAN -50;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE LEFT;");
+			mst = ("MOVE LEFT;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE RIGHT;");
+			mst = ("MOVE RIGHT;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE PON UP;");
+			mst = ("MOVE PON UP;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE PON DOWN;");
+			mst = ("MOVE PON DOWN;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("SOUND PLAY 48;");
+			mst = ("SOUND PLAY 48;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE PAN 0;");
+			mst = ("MOVE PAN 0;");
 			write(fd, mst, strlen(mst));
 		}
 
@@ -196,68 +196,68 @@ void sendAction()
 		{
 			char mst[] = ("MOVE TILT -100;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE PAN -25;");
+			mst = ("MOVE PAN -25;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE PAN 25;");
+			mst = ("MOVE PAN 25;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE PAN 0;");
+			mst = ("MOVE PAN 0;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE PON UP;");
+			mst = ("MOVE PON UP;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE PON DOWN;");
+			mst = ("MOVE PON DOWN;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE TILT 100;");
+			mst = ("MOVE TILT 100;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("SOUND PLAY 23;");
+			mst = ("SOUND PLAY 23;");
 			write(fd, mst, strlen(mst));
 		}
 		if ((happiness > -30) && (happiness < -21))
 		{
 			char mst[] = ("SOUND PLAY 23;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE TILT 100;");
+			mst = ("MOVE TILT 100;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE PAN 25;");
+			mst = ("MOVE PAN 25;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE TILT -100;");
+			mst = ("MOVE TILT -100;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE TILT 0;");
+			mst = ("MOVE TILT 0;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE PAN -25;");
+			mst = ("MOVE PAN -25;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE TILT -100;");
+			mst = ("MOVE TILT -100;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("SOUND PLAY 23;");
+			mst = ("SOUND PLAY 23;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE TILT 0;");
+			mst = ("MOVE TILT 0;");
 			write(fd, mst, strlen(mst));
 		}
-		if ((happiness > -40) && (happiness < -41))
+		if ((happiness > -40) && (happiness < -31))
 		{
 			char mst[] = ("MOVE SIDE LEFT;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE SIDE RIGHT;");
+			mst = ("MOVE SIDE RIGHT;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE SIDE LEFT;");
+			mst = ("MOVE SIDE LEFT;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE SIDE RIGHT;");
+			mst = ("MOVE SIDE RIGHT;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE TILT -100;");
+			mst = ("MOVE TILT -100;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("SOUND PLAY 23;");
+			mst = ("SOUND PLAY 23;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE TILT 0;");
+			mst = ("MOVE TILT 0;");
 			write(fd, mst, strlen(mst));
 		}
-		if ((happiness > -50) && (happiness < -51))
+		if ((happiness > -50) && (happiness < -41))
 		{
 			char mst[] = ("SOUND PLAY 23;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE TILT 100;");
+			mst = ("MOVE TILT 100;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE PAN 25;");
+			mst = ("MOVE PAN 25;");
 			write(fd, mst, strlen(mst));
-			mst[] = ("MOVE PAN -25;");
+			mst = ("MOVE PAN -25;");
 			write(fd, mst, strlen(mst));
 
 	}
