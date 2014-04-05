@@ -4,89 +4,62 @@ import time
 import serial
 from twython import Twython, TwythonStreamer
 
+global arduino
+
 class MyStreamer(TwythonStreamer):
 	def on_success(self, data):
 		if 'text' in data:
 			t = data['text'].encode('utf-8')
-			if t.find("happy") == 1:
+			if "happy" in t:
 				arduino.write("MOVE SIDE LEFT;")
-				time.sleep(2)
 				arduino.write("MOVE SIDE RIGHT;")
-				time.sleep(2)
 				arduino.write("MOVE SIDE LEFT;")
-				time.sleep(2)
 				arduino.write("MOVE SIDE RIGHT;")
-				time.sleep(2)
 				arduino.write("MOVE PON UP;")
-				time.sleep(2)
 				arduino.write("MOVE PON DOWN;")
-				time.sleep(2)
 				print t
 				print ' Happy!'
-			elif t.find("sad") == 1:
+			elif "sad" in t:
 				arduino.write("SOUND PLAY 23;")
-				time.sleep(2)
 				arduino.write("MOVE TILT 100;")
-				time.sleep(2)
 				arduino.write("MOVE PAN 25;")
-				time.sleep(2)
 				arduino.write("MOVE PAN -25;")
-				time.sleep(2)
 				arduino.write("MOVE PAN 0;")
-				time.sleep(2)
 				arduino.write("MOVE PON UP;")
-				time.sleep(2)
 				arduino.write("MOVE PON DOWN;")
-				time.sleep(2)
 				print t
-				print ' Sad !'
-			elif t.find("fear") == 1:
+				print ' Sad!'
+			elif "fear" in t:
 				arduino.write("MOVE TILT 0;")
-				time.sleep(2)
 				arduino.write("SOUND PLAY 44;")
-				time.sleep(2)
 				arduino.write("SOUND PLAY 44;")
-				time.sleep(2)
 				arduino.write("MOVE TILT 100;")
-				time.sleep(2)
 				print t
-				print 'Fear'
-			elif t.find("anger") == 1:
+				print 'Fear!'
+			elif "anger" in t:
 				arduino.write("MOVE SIDE LEFT;")
-				time.sleep(2)
 				arduino.write("MOVE SIDE RIGHT;")
-				time.sleep(2)
 				arduino.write("MOVE SIDE LEFT;")
-				time.sleep(2)
 				arduino.write("MOVE SIDE RIGHT;")
-				time.sleep(2)
 				arduino.write("MOVE TILT 100;")
-				time.sleep(2)
 				arduino.write("MOVE TILT -100;")
-				time.sleep(2)
 				arduino.write("MOVE TILT 100;")
-				time.sleep(2)
 				arduino.write("MOVE TILT -100;")
-				time.sleep(2)
 				print t
-			elif t.find("suprise") == 1:
+				print 'Suprise!'
+			elif "suprise" in t:
 				arduino.write("SOUND PLAY 49;")
-				time.sleep(2)
 				arduino.write("MOVE PON 100;")
-				time.sleep(2)
 				print t
-			elif t.find("disgust") == 1:
+			elif "disgust" in t:
 				arduino.write("MOVE PAN 25;")
-				time.sleep(2)
 				arduino.write("MOVE PAN -25;")
-				time.sleep(2)
 				arduino.write("SOUND PLAY 41;")
-				time.sleep(2)
 				print t
-				print 'Disgust'
-			elif t.find("dance") == 1:
-				#do something
+				print 'Disgust!'
+			elif "dance" in t:
 				print t
+				print 'Lets Dance!'
 			else:
 				print t					
 				
