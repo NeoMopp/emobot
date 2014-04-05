@@ -68,9 +68,9 @@ void sendAction()
 		if (input.find("Y") != std::string::npos)
 		{		
 			cout<<"Perfoming test."<<endl;
-			char msg[] = "SOUND PON UP;";
+			char* msg = "SOUND PON UP;";
 			write(fd, msg, strlen(msg));
-			msg = new char[]( "SOUND PON DOWN;");
+			msg = ("SOUND PON DOWN;");
 			write(fd, msg, strlen(msg));
 			cout<<"Was the test a success(Y/N)?:"<<endl;
 			getline(cin, input);
@@ -86,14 +86,14 @@ void sendAction()
 		//sleep(20);
 		if ((happiness > -10) && (happiness < 11))
 		{
-			char mst[] = ("MOVE TILT 0;");
+			char* mst = ("MOVE TILT 0;");
 			write(fd, mst, strlen(mst));
 			mst = ("MOVE PAN 0;");
 			write(fd, mst, strlen(mst));
 		}
 		if ((happiness > 10) && (happiness < 21))
 		{			
-			char mst[] = ("MOVE SIDE LEFT;");
+			char* mst = ("MOVE SIDE LEFT;");
 			write(fd, mst, strlen(mst));
 			mst = ("MOVE SIDE RIGHT;");
 			write(fd, mst, strlen(mst));
@@ -114,7 +114,7 @@ void sendAction()
 		}
 		if ((happiness > 20) && (happiness < 31))
 		{
-			char mst[] = ("MOVE SIDE LEFT;");
+			char* mst = ("MOVE SIDE LEFT;");
 			write(fd, mst, strlen(mst));
 			mst = ("MOVE SIDE RIGHT;");
 			write(fd, mst, strlen(mst));
@@ -133,7 +133,7 @@ void sendAction()
 		}
 		if ((happiness > 30) && (happiness < 41))
 		{
-			char mst[] = ("MOVE SIDE LEFT;");
+			char* mst = ("MOVE SIDE LEFT;");
 			write(fd, mst, strlen(mst));
 			mst = ("MOVE SIDE RIGHT;");
 			write(fd, mst, strlen(mst));
@@ -154,7 +154,7 @@ void sendAction()
 		}
 		if ((happiness > 40) && (happiness < 51))
 		{
-			char mst[] = ("MOVE LEFT;");
+			char* mst = ("MOVE LEFT;");
 			write(fd, mst, strlen(mst));
 			mst = ("MOVE RIGHT;");
 			write(fd, mst, strlen(mst));
@@ -194,7 +194,7 @@ void sendAction()
 
 		if ((happiness > -20) && (happiness < -11))
 		{
-			char mst[] = ("MOVE TILT -100;");
+			char* mst = ("MOVE TILT -100;");
 			write(fd, mst, strlen(mst));
 			mst = ("MOVE PAN -25;");
 			write(fd, mst, strlen(mst));
@@ -213,7 +213,7 @@ void sendAction()
 		}
 		if ((happiness > -30) && (happiness < -21))
 		{
-			char mst[] = ("SOUND PLAY 23;");
+			char* mst = ("SOUND PLAY 23;");
 			write(fd, mst, strlen(mst));
 			mst = ("MOVE TILT 100;");
 			write(fd, mst, strlen(mst));
@@ -234,7 +234,7 @@ void sendAction()
 		}
 		if ((happiness > -40) && (happiness < -31))
 		{
-			char mst[] = ("MOVE SIDE LEFT;");
+			char* mst = ("MOVE SIDE LEFT;");
 			write(fd, mst, strlen(mst));
 			mst = ("MOVE SIDE RIGHT;");
 			write(fd, mst, strlen(mst));
@@ -251,7 +251,7 @@ void sendAction()
 		}
 		if ((happiness > -50) && (happiness < -41))
 		{
-			char mst[] = ("SOUND PLAY 23;");
+			char* mst = ("SOUND PLAY 23;");
 			write(fd, mst, strlen(mst));
 			mst = ("MOVE TILT 100;");
 			write(fd, mst, strlen(mst));
