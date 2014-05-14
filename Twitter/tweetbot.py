@@ -58,8 +58,30 @@ class MyStreamer(TwythonStreamer):
 				print t
 				print 'Disgust!'
 			elif "dance" in t:
+                                arduino.write("SOUND REPEAT 23;")
+				arduino.write("MOVE PAN 25;")
+                                arduino.write("MOVE TILT 100;")
+                                arduino.write("MOVE TILT -100;")
+                                arduino.write("MOVE TILT 0;")
+                                arduino.write("MOVE PAN 100;")
+                                arduino.write("MOVE PAN -100;")
+                                arduino.write("MOVE PAN 0;")
 				print t
 				print 'Lets Dance!'
+			elif "annoy" in t:
+                                arduino.write("SOUND REPEAT 43;")
+                                print t
+                                print 'Annoy!'
+			elif "hello" in t:
+				arduino.write("MOVE SIDE LEFT;")
+				arduino.write("MOVE SIDE RIGHT;")
+				print t
+				print 'Hello!'
+			elif "nod" in t:
+				arduino.write("MOVE TILT 100;")
+				arduino.write("MOVE TILT 0;")
+				print t
+				print 'Nod!'
 			else:
 				print t					
 				

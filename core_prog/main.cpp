@@ -344,7 +344,7 @@ void faceDetect()
 			}
 			else 
 			{
-				happiness += 1.0;
+				happiness += 3.0;
 				counter++;
 			}			
 			cout<<"Faces: "<<faces.size()<<endl;
