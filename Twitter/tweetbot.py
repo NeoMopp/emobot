@@ -93,10 +93,10 @@ class MyStreamer(TwythonStreamer):
 	def on_error(self, status_code, data):
 		print status_code
 
-CONSUMER_KEY = 'xUfEkO7tRfU8AP2nhgSv5Q'
-CONSUMER_SECRET = 'DNM6HU9Ea65stWXwzFKefMqhwJ1wgtmwjHwm4XzftrA'
-ACCESS_KEY = '231817345-lUr55qZRkUs4GCRKTNlBzRuzDH6KoePf0uByh1RR'
-ACCESS_SECRET = 'mz7OT8g5xAsP1Nt9nyUiwmXKrtMJicuLoDjWGTvy7XKfa'
+CONSUMER_KEY = ''
+CONSUMER_SECRET = ''
+ACCESS_KEY = ''
+ACCESS_SECRET = ''
 
 #api = Twython(CONSUMER_KEY,CONSUMER_SECRET,ACCESS_KEY,ACCESS_SECRET) 
 
